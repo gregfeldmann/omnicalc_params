@@ -64,9 +64,84 @@ class CalculationsController < ApplicationController
        
          @the_square = @the_number**2
     
-        
+    
           render("calculations/process_square_template.html.erb")
     end
     
+ def square_root_new
+     
+         @the_number = params["a_number"].to_f
+       
+         @the_square_root = @the_number**4
+     
+     render("calculations/square_root_new_template.html.erb")
+     
+ end
+ 
+  def process_square_root_new
+        
+       @the_number = params["the_user_number"].to_f
+       
+       @the_square_root = @the_number**4
+    
+        
+        render("calculations/process_square_root_template.html.erb")
+ end
+ 
+ def payment_new
+     
+       @bps_input = params["basis_points"].to_i
+       
+      @bps = @bps_input/100
+    
+     @years_input = params["number_of_years"].to_i    
+        
+        @principal_input = params["present_value"].to_i
+        
+       # @payment_new = (@bps*@principal_input)/(1-(1+@bps)**@years_input).to_i
+        
+        
+    # P = (r*PV)/(1-(1+r)^-n  
+     render("calculations/payment_new_template.html.erb")
+     
+ end
+ 
+ def process_payment_new
+     
+     @user_apr = params["the_user_apr"].to_f
+       
+    @user_years = params["the_user_years"].to_f
+    
+    @user_pv = params["the_user_pv"].to_f
+     
+     render("calculations/process_payment_new_template.html.erb")
+     
+ end
+ 
+ def random_new
+ 
+  @min_input = params["the_user_min"].to_i
+      
+      @max_input = params["the_user_max"].to_i
+      
+      @random_number = rand(@min_input..@max_input)
+ 
+ render("calculations/random_new_template.html.erb")
+     
+ end
+ 
+ def process_random_new
+ 
+   @the_user_min = params["the_user_min"].to_f
+   
+    @the_user_max = params["the_user_max"].to_f
+    
+    @random_number_new = rand(@the_user_min..@the_user_max)
+ 
+ render("calculations/process_random_new_template.html.erb")
+ 
+ end
+ 
+ 
  
 end    

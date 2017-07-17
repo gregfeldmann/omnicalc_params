@@ -14,6 +14,18 @@ Rails.application.routes.draw do
    
    get("/square/results", { :controller => "calculations", :action => "process_square"})
    
+   get("/square_root/new", { :controller => "calculations", :action => "square_root_new"})
+ 
+   get("/square_root/results", { :controller => "calculations", :action => "process_square_root_new"})
+   
+    get("/payment/new", { :controller => "calculations", :action => "payment_new"})
+    
+     get("/payment/results", { :controller => "calculations", :action => "process_payment_new"})
+     
+      get("/random/new", { :controller => "calculations", :action => "random_new"})
+      
+      get("/random/results", { :controller => "calculations", :action => "process_random_new"})
+   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount WebGit::Engine, at: "/rails/git"
 end
