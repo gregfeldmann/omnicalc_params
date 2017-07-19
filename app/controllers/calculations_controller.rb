@@ -62,9 +62,6 @@ class CalculationsController < ApplicationController
     
  def square_root_new
      
-       #  @the_number = params["a_number"].to_f
-       
-      #   @the_square_root = @the_number**0.5
      
      render("calculations/square_root_new_template.html.erb")
      
