@@ -47,10 +47,6 @@ class CalculationsController < ApplicationController
  
     def square_new
         
-     #  @user_number = params["a_number"].to_i
-       
-     #  @squared_number = @user_number**2
-        
         render("calculations/square_new_template.html.erb")
     end    
     

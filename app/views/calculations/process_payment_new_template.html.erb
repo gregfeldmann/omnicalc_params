@@ -6,7 +6,7 @@
 
 
 <dt>Number of years</dt>
-<dd><%= @years%></dd>
+<dd><%=number_with_precision(@years, :precision => 1)%></dd>
 
 <dt>Principal</dt>
 <dd><%=number_to_currency(@principal, precision: 2)%></dd>
