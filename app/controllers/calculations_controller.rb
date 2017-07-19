@@ -13,7 +13,7 @@ class CalculationsController < ApplicationController
     
       @user_number = params["a_number"].to_i
        
-       @square_root = @user_number**2
+       @square_root = @user_number**0.5
          
         
         render("calculations/flexible_square_root_template.html.erb")
@@ -21,15 +21,15 @@ class CalculationsController < ApplicationController
     
     def flexible_payment
     
-      @bps_input = params["basis_points"].to_i
+     @bps_input = params["basis_points"].to_i
        
-      @bps = @bps_input/100
+     @bps = @bps_input/10000
     
      @years_input = params["number_of_years"].to_i    
         
-        @principal_input = params["present_value"].to_i
+      @principal_input = params["present_value"].to_i
         
-        @payment = (@bps*@principal_input)/(1-(1+@bps)**@years_input).to_i
+      # @payment = (@bps*@principal_input)/(1-(1+@bps)**@years_input).to_i
         
         
     # P = (r*PV)/(1-(1+r)^-n    
@@ -51,9 +51,9 @@ class CalculationsController < ApplicationController
  
     def square_new
         
-       @user_number = params["a_number"].to_i
+     #  @user_number = params["a_number"].to_i
        
-       @squared_number = @user_number**2
+     #  @squared_number = @user_number**2
         
         render("calculations/square_new_template.html.erb")
     end    
@@ -70,9 +70,9 @@ class CalculationsController < ApplicationController
     
  def square_root_new
      
-         @the_number = params["a_number"].to_f
+       #  @the_number = params["a_number"].to_f
        
-         @the_square_root = @the_number**4
+      #   @the_square_root = @the_number**0.5
      
      render("calculations/square_root_new_template.html.erb")
      
@@ -82,7 +82,7 @@ class CalculationsController < ApplicationController
         
        @the_number = params["the_user_number"].to_f
        
-       @the_square_root = @the_number**4
+       @the_square_root = @the_number**0.5
     
         
         render("calculations/process_square_root_template.html.erb")
@@ -92,13 +92,13 @@ class CalculationsController < ApplicationController
      
        @bps_input = params["basis_points"].to_i
        
-      @bps = @bps_input/100
+      @bps = @bps_input/10000
     
      @years_input = params["number_of_years"].to_i    
         
         @principal_input = params["present_value"].to_i
         
-       # @payment_new = (@bps*@principal_input)/(1-(1+@bps)**@years_input).to_i
+       @payment_new = (@bps*@principal_input)/(1-(1+@bps)**@years_input).to_i
         
         
     # P = (r*PV)/(1-(1+r)^-n  
@@ -134,14 +134,38 @@ class CalculationsController < ApplicationController
  
    @the_user_min = params["the_user_min"].to_f
    
-    @the_user_max = params["the_user_max"].to_f
+   @the_user_max = params["the_user_max"].to_f
     
-    @random_number_new = rand(@the_user_min..@the_user_max)
+   @random_number_new = rand(@the_user_min..@the_user_max)
  
  render("calculations/process_random_new_template.html.erb")
  
  end
+   
+  def word_count_new
+
+   # @character_count_with_spaces = @word_.length
+    
+
+   # @character_count_without_spaces = @text.gsub(/\s+/, "").length
+    
+
+   # @occurrences = @text.count("hey")
+   render("calculations/word_count_new_template.html.erb")
+   
+  end
+      
+     
+  
+   
+  def process_word_count_new
+   @user_text = params["user_text"]
  
- 
- 
-end    
+   @user_text_input = @user_text.split.count
+   
+   render("calculations/process_word_count_new_template.html.erb")
+  end
+   
+   
+   
+ end    

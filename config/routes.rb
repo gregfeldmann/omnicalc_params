@@ -26,6 +26,10 @@ Rails.application.routes.draw do
       
       get("/random/results", { :controller => "calculations", :action => "process_random_new"})
    
+      get("/word_count/new", { :controller => "calculations", :action => "word_count_new"})
+      
+       get("/word_count/results", { :controller => "calculations", :action => "process_word_count_new"})
+       
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount WebGit::Engine, at: "/rails/git"
 end
