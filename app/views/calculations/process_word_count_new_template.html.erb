@@ -9,11 +9,15 @@
 <dd><%=  @user_text_input %></dd>
 
 <dt>Character Count (with spaces)</dt>
-<dd><%= @the_square%></dd>
+<dd><%= @characters_with%></dd>
 </dl>
 
 <dt>Character Count (without spaces)</dt>
-<dd><%= @the_square%></dd>
+<dd><%= @characters_without%></dd>
+</dl>
+
+<dt>Occurrences of <code><%= @special_text %></code></dt>
+<dd><%= @occurrences%></dd>
 </dl>
 
 <a href="/word_count/new"> Process more text</a>
